@@ -1,5 +1,7 @@
 const userSchema = require('../Models/UserFiles')
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv');
+dotenv.config();
 
 const auth = async(req, res, next)=>{
     try{
