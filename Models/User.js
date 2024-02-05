@@ -2,6 +2,8 @@ const mongoose = require("mongoose")
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { Schema } = mongoose
+const dotenv = require('dotenv');
+dotenv.config();
 
 const newUser = new mongoose.Schema({
     RollNo: {

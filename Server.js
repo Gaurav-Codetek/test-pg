@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 //app.use(express.urlencoded({extended:true}))
 const corsOptions = {
-    origin:"http://localhost:3000",
+    origin:`${process.env.CORS_ORIGIN}`,
     credentials:true,
     aptionSuccessStatus:200
 }
