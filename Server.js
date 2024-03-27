@@ -17,7 +17,6 @@ const chatStorage = require('./Models/Chat.js')
 const postRouter = require('./Routes/postRouter.js')
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 9000
-const WEB_SOCKET_PORT = process.env.WEB_SOCKET_PORT || 8080
 const app = express()
 const cors = require('cors')
 
@@ -64,7 +63,7 @@ app.get('/', auth, (req, res) => {
 //     res.json(data)
 // })
 
-const wss = new WebSocket.Server({ port: WEB_SOCKET_PORT });
+const wss = new WebSocket.Server({ port: 8080 });
 const clients = new Set();
 wss.on('connection', function connection(ws) {
     clients.add(ws);
