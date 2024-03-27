@@ -8,6 +8,11 @@ const TestSchema = new mongoose.Schema({
     body:{
         type:String
     },
+    likeCount: {
+        type: Number,
+        require: true
+    },
+    likes:[],
     postedBy:{
         type:String,
         require:String,
