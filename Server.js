@@ -62,8 +62,11 @@ app.get('/', auth, (req, res) => {
 //     console.log(data)
 //     res.json(data)
 // })
-
-const wss = new WebSocket.Server({ port: 8080 });
+const server = require('http').createServer(app);
+const wss = new WebSocket.Server({ 
+        server: server,
+        perMessageDeflate: false
+ });
 const clients = new Set();
 wss.on('connection', function connection(ws) {
     clients.add(ws);
@@ -210,7 +213,7 @@ app.post('/signup', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
-    console.log("PORT connected")
+server.listen(PORT, () => {
+    console.log(`PORT connected at ${PORT}`)
 })
 
